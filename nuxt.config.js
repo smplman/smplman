@@ -30,7 +30,9 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
+    'nuxt-fontawesome',
   ],
+
   /*
   ** Plugins
   */
@@ -44,6 +46,21 @@ module.exports = {
     // proxyHeaders: false
   },
   /*
+  ** Fontawesome
+  */
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: ['fab']
+      }
+    ]
+  },
+  /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
@@ -51,8 +68,19 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/css/main.css'
+    '@/assets/css/main.css',
+    'highlight.js/styles/dracula.css'
   ],
+  /*
+  ** Environmnet Vars
+  */
+  env: {
+    cockpit: {
+      apiUrl: '',
+      apiToken: '',
+      baseUrl: ''
+    }
+  },
   /*
   ** Generate Routes
   */

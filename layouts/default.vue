@@ -1,23 +1,24 @@
 <template>
-  <div class="flex flex-row justify-center w-screen">
-    <div class="overflow-hidden content flex flex-col p-4 md:p-8">
-      <page-header/>
-      <page-nav/>
-      <nuxt/>
-      <page-footer/>
+  <div>
+    <page-header/>
+
+    <div class="flex flex-row justify-center w-screen bg-grey-lighter py-20">
+      <div class="overflow-hidden content p-4 md:p-8 bg-white rounded shadows">
+        <nuxt/>
+      </div>
     </div>
+
+    <page-footer/>
   </div>
 </template>
 
 <script>
 import PageHeader from '~/components/PageHeader.vue'
-import PageNav from '~/components/PageNav.vue'
 import PageFooter from '~/components/PageFooter.vue'
 
 export default {
   components: {
     PageHeader,
-    PageNav,
     PageFooter
   }
 }

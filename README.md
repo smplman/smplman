@@ -2,6 +2,8 @@
 
 > smplman project website
 <https://snipcart.com/blog/cockpit-cms-tutorial-nuxtjs>
+<https://github.com/thepracticaldev/dev.to>
+<https://willbrowning.me/building-a-static-blog-with-nuxt-js-and-cockpit-headless-cms-part-1-setup/>
 
 ## Build Setup
 
