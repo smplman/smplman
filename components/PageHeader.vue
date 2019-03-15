@@ -15,10 +15,10 @@
     <div class="w-1/3">
         <div class="float-left">
           <input type="search" name="search" id="search" placeholder="search" class="border rounded">
-          <font-awesome-icon :icon="['fas', 'search']" />
+          <font-awesome-icon class="w-6 h-6" :icon="['fas', 'search']" />
         </div>
-        <font-awesome-icon :icon="['fab', 'github']" />
-        <font-awesome-icon :icon="['fab', 'twitter']"  />
+        <font-awesome-icon class="w-6 h-6" :icon="['fab', 'github']" />
+        <font-awesome-icon class="w-6 h-6" :icon="['fab', 'twitter']"  />
     </div>
 
   </header>
