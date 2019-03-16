@@ -51,6 +51,7 @@ module.exports = {
   */
   axios: {
     // proxyHeaders: false
+    rejectUnauthorized: false
   },
   /*
   ** Fontawesome
@@ -94,21 +95,26 @@ module.exports = {
   */
   generate: {
     routes: async () => {
-      let { data } = await axios.post(process.env.POSTS_URL,
-      JSON.stringify({
-          filter: { published: true },
-          sort: {_created:-1},
-          populate: 1
-        }),
-      {
-        headers: { 'Content-Type': 'application/json' }
-      })
-      return data.entries.map((post) => {
-        return {
-          route: post.title_slug,
-          payload: post
-        }
-      })
+      // try {
+      //   let { data } = await axios.post(process.env.POSTS_URL,
+      //     JSON.stringify({
+      //       filter: { published: true },
+      //       sort: { _created: -1 },
+      //       populate: 1
+      //     }),
+      //     {
+      //       headers: { 'Content-Type': 'application/json' },
+      //       rejectUnauthorized: false,
+      //     })
+      //   return data.entries.map((post) => {
+      //     return {
+      //       route: post.title_slug,
+      //       payload: post
+      //     }
+      //   })
+      // } catch (error) {
+      //   return false;
+      // }
     }
   },
   /*

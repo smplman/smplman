@@ -1,5 +1,6 @@
 <template>
   <section>
+    <h1>Projects</h1>
     <div class=my-8>
       <ul class="flex flex-col w-full p-0">
         <li class="mb-6 w-full list-reset" v-for="(post, key) in posts" :key="key">
@@ -27,17 +28,27 @@
 <script>
 export default {
   async asyncData ({ app }) {
-    const { data } = await app.$axios.post(process.env.POSTS_URL,
-    JSON.stringify({
-        filter: { published: true },
-        sort: {_created:-1},
-        populate: 1
-      }),
-    {
-      headers: { 'Content-Type': 'application/json' }
-    })
 
-    return { posts: data.entries }
+    try {
+      const { data } = await app.$axios.post(process.env.POSTS_URL,
+        JSON.stringify({
+            filter: { published: true },
+            sort: {_created:-1},
+            populate: 1
+          }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        rejectUnauthorized: false
+      })
+      .catch((error) => {
+        return { posts: [] };
+      })
+
+      return { posts: data.entries }
+
+    } catch (error) {
+      return { posts: [] };
+    }
   }
 }
 </script>

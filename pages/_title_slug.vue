@@ -39,23 +39,16 @@ export default {
           populate: 1
         }),
       {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        rejectUnauthorized: false
+      })
+      .catch((error) => {
+        return { post: {} };
       })
 
       if (!data.entries[0]) {
         return error({ message: '404 Page not found', statusCode: 404 })
       }
-
-      // Get image
-      // let { data } = await app.$axios.post(process.env.POSTS_URL,
-      //   JSON.stringify({
-      //     filter: { published: true, title_slug: params.title_slug },
-      //     sort: {_created:-1},
-      //     populate: 1
-      //   }),
-      // {
-      //   headers: { 'Content-Type': 'application/json' }
-      // })
 
       return { post: data.entries[0] }
     }
