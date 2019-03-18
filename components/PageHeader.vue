@@ -2,7 +2,7 @@
   <header class="flex bg-white border-b-1 border-black shadow fixed pin-t pin-x z-100 opacity-97 z-10 h-12">
     <div class="w-1/3" >
         <a class="no-underline text-grey-darkest" href="/">
-          <span>smplman Project Site test</span>
+          <span>smplman Project Site test 2</span>
           <img src="~assets/images/FourLeafClover.svg" class="w-12 h-12 align-middle">
         </a>
 
