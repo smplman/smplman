@@ -1,0 +1,39 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* @import 'highlight.js/styles/dracula'; */
+
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+
+body {
+  font-family: 'Open+Sans', sans-serif;
+ }
+
+ h1,h2,h3,h4,h5,h6 {
+  font-family: 'Roboto', sans-serif;
+ }
+
+.content {
+  width: 50rem;
+}
+
+a {
+  @apply text-green-700 underline;
+}
+
+.markdown p {
+  @apply mt-0 mb-4 leading-normal;
+}
+
+.markdown ul {
+  @apply mb-2;
+}
+
+.markdown h2 {
+  @apply mb-4;
+}
+
+pre {
+  @apply my-8;
+}

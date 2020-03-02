@@ -1,25 +1,25 @@
 <template>
   <div>
-    <page-header/>
+    <site-header/>
 
-    <div class="flex flex-row justify-center w-screen bg-grey-lighter py-20">
+    <div class="flex flex-row justify-center w-screen bg-grey-lighter">
       <div class="overflow-hidden content p-4 md:p-8 bg-white rounded shadows">
         <nuxt/>
       </div>
     </div>
 
-    <page-footer/>
+    <site-footer/>
   </div>
 </template>
 
 <script>
-import PageHeader from '~/components/PageHeader.vue'
-import PageFooter from '~/components/PageFooter.vue'
+import SiteHeader from '~/components/Header.vue'
+import SiteFooter from '~/components/Footer.vue'
 
 export default {
   components: {
-    PageHeader,
-    PageFooter
+    SiteHeader,
+    SiteFooter
   }
 }
 </script>

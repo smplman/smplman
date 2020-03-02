@@ -2,7 +2,6 @@ require('dotenv').config()
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
-import axios from 'axios'
 
 class TailwindExtractor {
   static extract(content) {
@@ -24,6 +23,7 @@ module.exports = {
       { name: 'theme-color', content: '#ffffff' }
     ],
     link: [
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
@@ -32,6 +32,7 @@ module.exports = {
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0e9e49'},
     ]
   },
+
   /*
   ** Modules
   */
@@ -46,13 +47,28 @@ module.exports = {
   plugins: [
     '~/plugins/filters.js'
   ],
+
   /*
   ** Axios
   */
   axios: {
     // proxyHeaders: false
-    rejectUnauthorized: false
+    rejectUnauthorized: false,
+    proxy: true,
+    headers: { 'Content-Type': 'application/json' }
   },
+
+  proxy: {
+    '/api/projects/': {
+      target: process.env.POSTS_URL,
+      pathRewrite: { '^/api/projects/': '' }
+    },
+    '/api/search/': {
+      target: process.env.SEARCH_URL,
+      pathRewrite: { '^/api/search/': '' }
+    }
+  },
+
   /*
   ** Fontawesome
   */
@@ -68,17 +84,19 @@ module.exports = {
       }
     ]
   },
+
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+
   /*
   ** Global CSS
   */
   css: [
-    '@/assets/css/main.css',
     'highlight.js/styles/dracula.css'
   ],
+
   /*
   ** Environmnet Vars
   */
@@ -90,38 +108,35 @@ module.exports = {
       baseUrl: ''
     }
   },
+
   /*
-  ** Generate Routes
+  ** Tailwind CSS configuration
   */
-  generate: {
-    routes: async () => {
-      // try {
-      //   let { data } = await axios.post(process.env.POSTS_URL,
-      //     JSON.stringify({
-      //       filter: { published: true },
-      //       sort: { _created: -1 },
-      //       populate: 1
-      //     }),
-      //     {
-      //       headers: { 'Content-Type': 'application/json' },
-      //       rejectUnauthorized: false,
-      //     })
-      //   return data.entries.map((post) => {
-      //     return {
-      //       route: post.title_slug,
-      //       payload: post
-      //     }
-      //   })
-      // } catch (error) {
-      //   return false;
-      // }
-    }
+  tailwindcss: {
+    configPath: '~/config/tailwind.config.js',
+    cssPath: '~/assets/css/tailwind.css',
+    purgeCSSInDev: false
   },
+
+  buildModules: [
+    '@nuxtjs/tailwindcss'
+  ],
+
   /*
   ** Build configuration
   */
   build: {
     extractCSS: true,
+
+    postcss: {
+      // plugins: {
+      //   'tailwindcss': path.resolve('./tailwind.js')
+      // },
+      preset: {
+        autoprefixer: { grid: true }
+      }
+    },
+
     /*
     ** Run ESLint on save
     */
