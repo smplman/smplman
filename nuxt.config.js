@@ -129,11 +129,8 @@ module.exports = {
     extractCSS: true,
 
     postcss: {
-      // plugins: {
-      //   'tailwindcss': path.resolve('./tailwind.js')
-      // },
       preset: {
-        autoprefixer: { grid: true }
+        autoprefixer: { grid: false }
       }
     },
 
@@ -180,9 +177,9 @@ module.exports = {
             ],
             whitelistPatterns: [/\bhljs\S*/]
           })
-        )
+        );
       }
     }
   }
-}
+};
 

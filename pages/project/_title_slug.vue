@@ -13,7 +13,7 @@
       </div>
 
 
-      <h1 class="mt-4 font-bold text-3xl">
+      <h1>
         {{ post.title }}
       </h1>
 

@@ -31,7 +31,7 @@
 
 <script>
 import NewNav from '~/components/NewNav.vue'
-import NavLinks from '~/components/Nav.vue'
+import NavLinks from '~/components/NavLinks.vue'
 
 export default {
   components: {

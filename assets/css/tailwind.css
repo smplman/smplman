@@ -1,8 +1,6 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-/* @import 'highlight.js/styles/dracula'; */
-
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
@@ -10,9 +8,13 @@ body {
   font-family: 'Open+Sans', sans-serif;
  }
 
- h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Roboto', sans-serif;
  }
+
+h1 {
+  @apply mt-4 font-bold text-3xl;
+}
 
 .content {
   width: 50rem;
@@ -37,3 +39,6 @@ a {
 pre {
   @apply my-8;
 }
+
+
+
