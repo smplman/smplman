@@ -1,42 +1,38 @@
 <template>
-  <!-- <header class="flex bg-white border-b-1 border-black shadow fixed pin-t pin-x z-100 opacity-97 z-10 h-12 px-5">
+  <header class="flex items-center justify-between flex-wrap bg-gray-800 p-4 border-b-1 border-black shadow">
 
-    <div class="w-1/3" >
-        <nuxt-link class="no-underline text-gray-900" to="/">
-          <span>smplman Project Site</span>
-          <img src="~assets/images/FourLeafClover.svg" class="w-12 h-12 align-middle">
-        </nuxt-link>
+    <nuxt-link class="no-underline flex items-center flex-shrink-0 text-white mr-6" to="/">
+      <img class="fill-current h-8 w-8 mr-2" src="~assets/images/FourLeafClover.svg">
+      <span class="text-gray-300">smplman Project Site</span>
+    </nuxt-link>
+
+    <div class="block md:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-green-200 border-green-400 hover:text-white hover:border-white" @click="toggleMenu()">
+        <font-awesome-icon class="fill-current h-3 w-3" title="Menu" :icon="['fas', 'bars']"/>
+      </button>
     </div>
 
-    <div class="w-1/3">
-      <nav-links/>
-    </div>
+    <nav-links :class="{ hidden: !showNav }" class="md:block md:flex" />
 
-    <div class="w-1/3">
-        <div class="float-left">
-          <input type="search" name="search" id="search" placeholder="search" class="border rounded">
-          <font-awesome-icon class="w-6 h-6" :icon="['fas', 'search']"/>
-        </div>
-        <a href="https://github.com/smp4488/" target="_blank">
-          <font-awesome-icon class="w-6 h-6" :icon="['fab', 'github']"/>
-        </a>
-        <a href="https://twitter.com/smp4488/" target="_blank">
-          <font-awesome-icon class="w-6 h-6" :icon="['fab', 'twitter']"/>
-        </a>
-    </div>
-
-  </header> -->
-  <new-nav/>
+  </header>
 </template>
 
 <script>
-import NewNav from '~/components/NewNav.vue'
 import NavLinks from '~/components/NavLinks.vue'
 
 export default {
   components: {
-    NewNav,
     NavLinks
+  },
+  data: () => {
+    return {
+      showNav: false
+    }
+  },
+  methods: {
+    toggleMenu(){
+      this.showNav = !this.showNav;
+    }
   }
 }
 </script>
