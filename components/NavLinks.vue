@@ -8,7 +8,7 @@
     <div class="mt-4 md:mt-0 flex items-center">
       <div class="relative mr-2">
         <input type="search" name="search" id="search" placeholder="search" class="border rounded">
-        <font-awesome-icon class="w-6 h-full absolute right-0 cursor-pointer rounded-r" :icon="['fas', 'search']"/>
+        <font-awesome-icon class="w-6 h-full absolute right-0 top-0 cursor-pointer rounded-r" :icon="['fas', 'search']"/>
       </div>
 
       <a href="https://github.com/smp4488/" target="_blank" class="flex mx-2">
