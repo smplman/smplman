@@ -118,7 +118,15 @@ module.exports = {
     purgeCSSInDev: false
   },
 
+  /*
+  ** Google Analytics configuration
+  */
+  googleAnalytics: {
+    id: 'UA-18917336-1'
+  },
+
   buildModules: [
+    '@nuxtjs/google-analytics',
     '@nuxtjs/tailwindcss'
   ],
 
