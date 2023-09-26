@@ -136,6 +136,13 @@ module.exports = {
   build: {
     extractCSS: true,
 
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+        ['@babel/plugin-transform-private-methods', { loose: true }]
+      ],
+    },
+
     postcss: {
       preset: {
         autoprefixer: { grid: false }
